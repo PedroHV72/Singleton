@@ -1,11 +1,11 @@
-public class CinemaTest {
-    public static void main(String[] args) {
-        agendarPoltrona("1");
-        agendarPoltrona("1");
-    }
+import org.testng.annotations.Test;
 
-    private static void agendarPoltrona(String poltrona) {
-        CinemaSingleton cinema1 = CinemaSingleton.getInstance();
-        System.out.println(cinema1.bookPoltrona(poltrona));
+import static org.testng.AssertJUnit.assertEquals;
+
+public class CinemaTest {
+    @Test
+    public void deveRetornarPoltrona() {
+        CinemaSingleton.getInstance().setPoltrona(1);
+        assertEquals(1, CinemaSingleton.getInstance().getPoltrona());
     }
 }

@@ -1,21 +1,17 @@
-import java.util.HashSet;
-import java.util.Set;
-
 public class CinemaSingleton {
-    private static final CinemaSingleton INSTANCE = new CinemaSingleton();
-    private Set<String> poltronasDisponiveis;
-
+    private CinemaSingleton() {};
+    private static CinemaSingleton instance = new CinemaSingleton();
     public static CinemaSingleton getInstance() {
-        return INSTANCE;
+        return instance;
     }
 
-    private CinemaSingleton() {
-        this.poltronasDisponiveis = new HashSet<>();
-        poltronasDisponiveis.add("1");
-        poltronasDisponiveis.add("1");
+    private int poltrona;
+
+    public int getPoltrona() {
+        return poltrona;
     }
 
-    public boolean bookPoltrona(String poltrona) {
-        return poltronasDisponiveis.remove(poltrona);
+    public void setPoltrona(int poltrona) {
+        this.poltrona = poltrona;
     }
 }
